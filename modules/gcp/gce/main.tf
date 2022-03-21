@@ -10,13 +10,18 @@ variable env {
   type = string
 }
 
+variable owner {
+  type = string
+  default = "jason"
+}
+
 resource "google_compute_instance" "mygce" {
   name         = var.name
   machine_type = var.machine_type
 
   labels = {
     env = var.env
-    owner = "jason"
+    owner = var.owner
   }
 
   boot_disk {
